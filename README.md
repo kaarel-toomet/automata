@@ -1,0 +1,2 @@
+# automata
+sample text
