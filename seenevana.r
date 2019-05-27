@@ -1,4 +1,12 @@
-seenevana <- function(sz=100,tm=50,pmd=TRUE,dqm=0.5,dqp=0.02) {
+##fungus simulator
+##=================
+##sz: size of world
+##tm: time
+##pmd: if it renders
+##dqm: how fast the fungi eat
+##dqp: how fast the food comes back
+##bq: how much food the world starts with
+seenevana <- function(sz=100,tm=70,pmd=TRUE,dqm=0.5,dqp=0.02, bq = 1) {
   nx <- sz
   ny <- sz
   x <- seq(1,nx)
@@ -7,7 +15,7 @@ seenevana <- function(sz=100,tm=50,pmd=TRUE,dqm=0.5,dqp=0.02) {
   xv <- c(0,nx)
   yv <- c(0,ny)
   F0 <- matrix(0,nx,ny)
-  Q <- matrix(1,nx,ny)
+  Q <- matrix(bq,nx,ny)
   breks <- 0:100/100
   qpal <- colorRampPalette(c("black","green","white"))(100)
   fpal <- colorRampPalette(c("blue","cyan"))(100)
@@ -59,7 +67,7 @@ seenevana <- function(sz=100,tm=50,pmd=TRUE,dqm=0.5,dqp=0.02) {
   }
   sum(F0)
 } 
-seenevana2 <- function(sz=200,tm=200,dqm=0.95,dqp=0.95) {
+seenevana2 <- function(sz=200,tm=200,dqm=0.9,dqp=0.9) {
   pmd <- TRUE
   nx <- sz
   ny <- sz
@@ -68,8 +76,8 @@ seenevana2 <- function(sz=200,tm=200,dqm=0.95,dqp=0.95) {
   xy <- expand.grid(x = x, y = y)
   xv <- c(0,nx)
   yv <- c(0,ny)
-  G0 <- F0 <- matrix(0,nx,ny)
-  Q <- matrix(0.5,nx,ny)
+  G0 <- F0 <- matrix(0.5,nx,ny)
+  Q <- matrix(0,nx,ny)
   breks <- 0:100/100
   qpal <- colorRampPalette(c("black","green","white"))(100)
   fpal <- colorRampPalette(c("blue","cyan"))(100)
